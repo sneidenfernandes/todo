@@ -108,13 +108,13 @@ export default function List(){
         <div className="font-mono">
         {list.map((item,index)=> (
             <div key={index} className={`ml-3 flex flex-row justify-between my-4 ${item.completed ? `opacity-50` : ``}`}>
-                <button onClick={()=> toggleTodo(index)} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
+                <button onClick={(e)=> toggleTodo(index)} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
 
                 <div className={`${item.completed ? `line-through`: ``} h-1 text-left flex`}>
                     {item.text}
                 </div>
                 
-                <button onClick={()=>removeTodo(index, item)} >
+                <button onClick={(e)=>removeTodo(index, item)} >
                     {"[-]"}
                 </button>
             </div>
@@ -132,12 +132,12 @@ export default function List(){
             
 
             {/* save button */}
-            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=>save()}>
+            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={(e)=>save()}>
                 {saved ? 'saving...': 'Save'}
             </button>
 
             {/* clear all button */}
-            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=> clearTodo()}>
+            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={(e)=> clearTodo()}>
                 Clear all
             </button>
 
