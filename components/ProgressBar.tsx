@@ -9,7 +9,7 @@ export default function ProgressBar({completedTasks}:progresBarInputs){
 
     return (
 
-    <div className="w-full bg-gray-300 rounded h-[1px] my-4">
+    <div className="w-full bg-gray-300 rounded h-[3px] my-4">
         <div className={`bg-gray-500 h-[1px] rounded`} style={{ width: `${percentage}%` }} ></div>
     </div>
 

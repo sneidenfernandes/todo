@@ -92,7 +92,7 @@ export default function List(){
             </div>
         {/* Add task input */}
         <div>
-            <input  value={inputValue} type="text" placeholder="Add Task" className="w-full font-mono p-4 focus:outline-none focus:border-transparent"
+            <input  value={inputValue} type="text" placeholder="Add Task" className="w-full font-mono p-4 focus:outline-none focus:border-transparent mb-5"
              onChange={(e)=>{
                 setInputValue(e.target.value);
             }}
@@ -109,7 +109,7 @@ export default function List(){
         {/* Todo List */}
         <div className="font-mono">
         {list.map((item,index)=> (
-            <div key={index} className={`ml-3 flex flex-row justify-between my-2 ${item.completed ? `opacity-50` : ``}`}>
+            <div key={index} className={`ml-3 flex flex-row justify-between my-4 ${item.completed ? `opacity-50` : ``}`}>
                 <button onClick={()=> toggleTodo(index)} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
 
                 <div className={`${item.completed ? `line-through`: ``} h-1 text-left flex`}>
