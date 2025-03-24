@@ -140,12 +140,8 @@ export default function List(){
             <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={(e)=> clearTodo()}>
                 Clear all
             </button>
-
             
         </div>
-
-
-       
 
 
     </div>
