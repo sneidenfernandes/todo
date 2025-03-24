@@ -129,18 +129,18 @@ export default function List(){
         
       
             {/* Buttons */}
-        <div className={`${list.length === 0 ? `hidden` : ``} flex justify-evenly mt-4 opacity-50`}>
+        <div className={`${list.length === 0 ? `hidden` : ``} flex justify-evenly mt-20 opacity-60`}>
 
             
 
             {/* save button */}
-            <button className="flex w-full justify-center flex-row mt-6" onClick={()=>save()}>
-                {saved ? 'saving...': '[save]'}
+            <button className="flex w-[30%] justify-center text-sm flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=>save()}>
+                {saved ? 'saving...': 'Save'}
             </button>
 
             {/* clear all button */}
-            <button className="flex w-full justify-center  flex-row mt-6" onClick={()=> clearTodo()}>
-                [clear all]
+            <button className="flex w-[30%] justify-center text-sm flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=> clearTodo()}>
+                Clear all
             </button>
 
             
