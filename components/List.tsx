@@ -24,7 +24,6 @@ export default function List(){
 
         const percentage : number = list.length === 0 ? 0 : Number((completedTasks/list.length).toFixed(2));        
         setPercentageComplete(percentage * 100);
-
         
     }, [list, completedTasks]);
 
@@ -106,8 +105,7 @@ export default function List(){
         
         {/* Todo List */}
         <div className="font-mono">
-        {list?.map((item,index)=> (
-            <>
+        {list?.map((item,index) => 
             <div key={index} className={`ml-3 flex flex-row justify-between my-4 ${item.completed ? `opacity-50` : ``}`}>
                 <button onClick={()=> toggleTodo(index)} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
 
@@ -119,13 +117,8 @@ export default function List(){
                     {"[-]"}
                 </button>
             </div>
-            </>
-        ))}    
+        )}    
         </div>  
-        
-        {/* <div>
-            {percentageComplete}
-        </div> */}
         
       
             {/* Buttons */}
