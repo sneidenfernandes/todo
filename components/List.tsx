@@ -1,5 +1,5 @@
 "use client";
-import {useEffect, useState} from "react";
+import {EventHandler, useEffect, useState} from "react";
 import ProgressBar from "./ProgressBar";
 
 export default function List(){
@@ -78,10 +78,8 @@ export default function List(){
     const save = () => {
         setSaved(true)
         const todoString = JSON.stringify(list);
-        localStorage.setItem("todos", todoString)
-        setTimeout(()=>{
-            setSaved(false);
-        },2000)
+        localStorage.setItem("todos", todoString);
+        setTimeout(()=>{setSaved(false)},2000);
     }
 
 
@@ -94,11 +92,11 @@ export default function List(){
         <div>
             <input  value={inputValue} type="text" placeholder="Add Task" className="w-full font-mono p-4 focus:outline-none focus:border-transparent mb-5"
              onChange={(e)=>{
-                setInputValue(e.target.value);
+                setInputValue(e?.target.value);
             }}
             
             onKeyDown={(e)=>{
-                if(e.key === "Enter"){
+                if(e?.key === "Enter"){
                     addTodo()
                 }
             }}
@@ -129,17 +127,17 @@ export default function List(){
         
       
             {/* Buttons */}
-        <div className={`${list.length === 0 ? `hidden` : ``} flex justify-evenly mt-20 opacity-60`}>
+        <div className={`${list.length === 0 ? `hidden` : ``} flex justify-evenly mt-20 `}>
 
             
 
             {/* save button */}
-            <button className="flex w-[30%] justify-center text-sm flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=>save()}>
+            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=>save()}>
                 {saved ? 'saving...': 'Save'}
             </button>
 
             {/* clear all button */}
-            <button className="flex w-[30%] justify-center text-sm flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=> clearTodo()}>
+            <button className="flex w-[30%] justify-center text-sm text-black flex-row  border py-2 text-black rounded-sm bg-slate-300" onClick={()=> clearTodo()}>
                 Clear all
             </button>
 
