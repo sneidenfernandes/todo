@@ -1,5 +1,5 @@
 "use client";
-import {EventHandler, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import ProgressBar from "./ProgressBar";
 
 export default function List(){
