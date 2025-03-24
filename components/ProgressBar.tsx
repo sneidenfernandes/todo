@@ -5,7 +5,7 @@ interface progresBarInputs {
 
 export default function ProgressBar({completedTasks}:progresBarInputs){
 
-    let percentage = parseFloat(completedTasks)
+    const percentage = parseFloat(completedTasks)
 
     return (
 

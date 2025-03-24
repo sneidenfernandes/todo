@@ -22,7 +22,7 @@ export default function List(){
 
     useEffect(()=>{
 
-        let percentage : any = list.length === 0 ? 0 : (completedTasks/list.length).toFixed(2);        
+        const percentage : number = list.length === 0 ? 0 : Number((completedTasks/list.length).toFixed(2));        
         setPercentageComplete(percentage * 100);
 
         
@@ -41,7 +41,7 @@ export default function List(){
    
     }
 
-    const removeTodo = (index: number, item: any) => {
+    const removeTodo = (index: number, item: {text: string, completed: boolean}) => {
                const newList = list.filter((_,i) => i !== index );
                setList(newList);
                if(item.completed){
@@ -98,7 +98,9 @@ export default function List(){
             }}
             
             onKeyDown={(e)=>{
-                e.key === "Enter" ? addTodo() : ""
+                if(e.key === "Enter"){
+                    addTodo()
+                }
             }}
             />
 
