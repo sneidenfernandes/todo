@@ -1,8 +1,8 @@
 "use client";
 import {useEffect, useState} from "react";
 import ProgressBar from "./ProgressBar";
-
 export default function List(){
+
     const [list, setList] = useState<Array<{text: string, completed: boolean}>>([]);
     const [inputValue, setInputValue] = useState<string>("");
     const [saved, setSaved] = useState<boolean>(false);
@@ -15,15 +15,25 @@ export default function List(){
         if(todos){
             const json = JSON.parse(todos);
             setList(json);
+
+            const completedTodos = json.filter((todo:{text:string, completed:boolean})=>{
+                return todo.completed 
+            });
+           
+
         } else {
             setList([]);
         }
+
+
+
     },[]);
 
     useEffect(()=>{
 
         const percentage : number = list.length === 0 ? 0 : Number((completedTasks/list.length).toFixed(2));        
         setPercentageComplete(percentage * 100);
+
         
     }, [list, completedTasks]);
 
@@ -105,20 +115,24 @@ export default function List(){
         
         {/* Todo List */}
         <div className="font-mono">
-        {list?.map((item,index) => 
+        {list.map((item,index)=> (
             <div key={index} className={`ml-3 flex flex-row justify-between my-4 ${item.completed ? `opacity-50` : ``}`}>
-                <button onClick={()=> {toggleTodo(index)}} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
+                <button onClick={()=> toggleTodo(index)} className="opacity-80">{item.completed ? "[x]" : "[ ]"}</button>
 
                 <div className={`${item.completed ? `line-through`: ``} h-1 text-left flex`}>
                     {item.text}
                 </div>
                 
-                <button onClick={()=>{removeTodo(index, item)}} >
+                <button onClick={()=>removeTodo(index, item)} >
                     {"[-]"}
                 </button>
             </div>
-        )}    
+        ))}    
         </div>  
+        
+        {/* <div>
+            {percentageComplete}
+        </div> */}
         
       
             {/* Buttons */}
